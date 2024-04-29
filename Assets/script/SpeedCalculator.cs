@@ -15,7 +15,6 @@ public class SpeedCalculator : MonoBehaviour
     public Image warringImage;
     public Image warringIcon;
 
-    int time;
     bool isBlinking = false;
     float blinkInterval = 0.5f; // Adjust this interval as needed
 
@@ -52,7 +51,6 @@ public class SpeedCalculator : MonoBehaviour
             }
         }
     }
-
     IEnumerator BlinkIcon()
     {
         isBlinking = true;        
