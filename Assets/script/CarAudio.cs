@@ -25,7 +25,6 @@ public class CarAudio : MonoBehaviour
     void Update()
     {
         PitchControl();
-        GearChange();
         EngineVolume();
     }
 
