@@ -6,11 +6,6 @@ public class Gear : MonoBehaviour
     public string[] gears = { "P", "R", "N", "D" };
     public int currentGear = 0;
 
-    void Start()
-    {
-        Debug.Log("현재 기어: " + gears[currentGear]);
-    }
-
     void Update()
     {
         //기어조작부분

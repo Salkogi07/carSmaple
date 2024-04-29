@@ -22,7 +22,7 @@ public class WheelController : MonoBehaviour
     public Gear gear;
 
     float KPH;
-    float breakSpeed = 240;
+    float breakSpeed = 250;
 
     private void Start()
     {
@@ -132,7 +132,7 @@ public class WheelController : MonoBehaviour
             {
                 if(gear.currentGear != 0)
                 {
-                    breakSpeed = 240;
+                    breakSpeed = 250;
                 }
             }    
         }
