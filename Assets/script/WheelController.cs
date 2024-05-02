@@ -103,7 +103,7 @@ public class WheelController : MonoBehaviour
                 {
                     if (Input.GetKey(KeyCode.W))
                     {
-                        steerableWheels[i].wheelCol.motorTorque = Mathf.Lerp(steerableWheels[i].wheelCol.motorTorque, wheelMaxSpeed, Time.deltaTime * wheelAcceleration);
+                        steerableWheels[i].wheelCol.motorTorque = Mathf.Lerp(steerableWheels[i].wheelCol.motorTorque, wheelMaxSpeed, Time.deltaTime * wheelAcceleration * 100);
                     }
                 }
             }
