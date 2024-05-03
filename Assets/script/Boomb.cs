@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class boomb : MonoBehaviour
+public class Boomb : MonoBehaviour
 {
     public GameObject prefabToSpawn;
     private float displayTime = 2f;

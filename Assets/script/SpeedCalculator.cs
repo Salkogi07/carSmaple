@@ -16,7 +16,7 @@ public class SpeedCalculator : MonoBehaviour
     public Image warringIcon;
 
     bool isBlinking = false;
-    float blinkInterval = 0.5f; // Adjust this interval as needed
+    Coroutine blinkCoroutine; // Store the coroutine instance
 
     private void Start()
     {
@@ -34,30 +34,34 @@ public class SpeedCalculator : MonoBehaviour
 
         if (Speed >= 240)
         {
-            warringImage.gameObject.SetActive(true);
             if (!isBlinking)
             {
-                StartCoroutine(BlinkIcon());
+                blinkCoroutine = StartCoroutine(BlinkIcon());
             }
+            warringImage.gameObject.SetActive(true); // 경고 이미지를 보여줍니다.
         }
         else
         {
-            warringImage.gameObject.SetActive(false);
             if (isBlinking)
             {
-                StopCoroutine(BlinkIcon());
+                StopCoroutine(blinkCoroutine); // 코루틴을 중지합니다.
                 isBlinking = false;
-                warringIcon.gameObject.SetActive(true); // Ensure icon is visible when not blinking
+                warringIcon.gameObject.SetActive(true); // 경고 아이콘을 보여줍니다.
             }
+            warringImage.gameObject.SetActive(false); // 경고 이미지를 숨깁니다.
         }
     }
+
     IEnumerator BlinkIcon()
     {
-        isBlinking = true;        
+        isBlinking = true;
+        warringImage.gameObject.SetActive(true); // 깜박이기 시작할 때 이미지를 먼저 보이게 합니다.
+        yield return new WaitForSeconds(0.5f); // 0.5초 동안 기다립니다.
+
         while (true)
         {
             warringIcon.gameObject.SetActive(!warringIcon.gameObject.activeSelf);
-            yield return new WaitForSeconds(blinkInterval);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }
