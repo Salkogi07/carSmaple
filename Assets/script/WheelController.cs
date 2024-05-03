@@ -127,9 +127,17 @@ public class WheelController : MonoBehaviour
 
             if (Input.GetKey(KeyCode.S))
             {
+                
                 carLight.BreakLightOn();
                 steerableWheels[i].wheelCol.motorTorque = 0;
                 breakSpeed = Mathf.Lerp(KPH,0,Time.deltaTime * 2);
+            }
+            if (Input.GetKeyUp(KeyCode.S))
+            {
+
+                carLight.BreakLightOff();
+                steerableWheels[i].wheelCol.motorTorque = 0;
+                breakSpeed = Mathf.Lerp(KPH, 0, Time.deltaTime * 2);
             }
             else
             {

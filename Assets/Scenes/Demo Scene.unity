@@ -1711,7 +1711,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5267005419377893452}
   - component: {fileID: 7351560711370822561}
-  - component: {fileID: 422019820891222640}
   - component: {fileID: 1632831450109556319}
   m_Layer: 0
   m_Name: backlights_right
@@ -1720,20 +1719,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &422019820891222640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 422019820891222639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ff5d609281cbd743b0ca4a11510e282, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LightsMatrial: {fileID: 2100000, guid: 0dfd07ce72056c649913b72f138cf889, type: 2}
-  brake: 0
 --- !u!4 &543450652694164826
 Transform:
   m_ObjectHideFlags: 0
@@ -2839,7 +2824,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2653561379411127385}
   - component: {fileID: 5027159280520727457}
-  - component: {fileID: 5578257304726449060}
   - component: {fileID: 2651593214857119289}
   m_Layer: 0
   m_Name: backlights_left
@@ -2848,20 +2832,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &5578257304726449060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5578257304726449059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ff5d609281cbd743b0ca4a11510e282, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LightsMatrial: {fileID: 2100000, guid: 0dfd07ce72056c649913b72f138cf889, type: 2}
-  brake: 0
 --- !u!4 &5612811750210570110
 Transform:
   m_ObjectHideFlags: 0
@@ -3669,6 +3639,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   rearLight_Obj: {fileID: 1379720850}
+  rearLight:
+  - {fileID: 0}
+  - {fileID: 0}
   lowIntensity: 0.5
   highIntensity: 1
   highBeamLight: 2

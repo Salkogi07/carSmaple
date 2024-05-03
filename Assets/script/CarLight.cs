@@ -7,19 +7,23 @@ public class CarLight : MonoBehaviour
     public GameObject headLight_Obj;
     public Light[] headLight;
     public GameObject rearLight_Obj;
+    public Light[] rearLight;
 
     public float lowIntensity = 0.8f;
     public float highIntensity = 1.34f;
     public float highBeamLight = 2f;
-    public float currentLight = 0;
+    public float currentHeadLight = 0;
     private int isDimmed = 0;
     private bool highBeam = false;
+    public bool breakLight = true;
 
     void Start()
     {
-        rearLight_Obj.SetActive(false);
         headLight[0] = headLight_Obj.transform.Find("0").gameObject.GetComponent<Light>();
         headLight[1] = headLight_Obj.transform.Find("1").gameObject.GetComponent<Light>();
+
+        rearLight[0] = rearLight_Obj.transform.Find("0").gameObject.GetComponent<Light>();
+        rearLight[1] = rearLight_Obj.transform.Find("1").gameObject.GetComponent<Light>();
     }
 
     void Update()
@@ -48,8 +52,8 @@ public class CarLight : MonoBehaviour
     {
         if (highBeam)
         {
-            headLight[0].intensity = currentLight;
-            headLight[1].intensity = currentLight;
+            headLight[0].intensity = currentHeadLight;
+            headLight[1].intensity = currentHeadLight;
         }
         else
         {
@@ -62,29 +66,37 @@ public class CarLight : MonoBehaviour
     {
         if(isDimmed == 0)
         {
-            currentLight = 0;
+            currentHeadLight = 0;
+            rearLight[0].intensity = 0f;
+            rearLight[1].intensity = 0f;
         }
         else if(isDimmed == 1)
         {
-            currentLight = lowIntensity;
+            currentHeadLight = lowIntensity;
             headLight[0].intensity = lowIntensity;
             headLight[1].intensity = lowIntensity;
+            rearLight[0].intensity = 2.3f;
+            rearLight[1].intensity = 2.3f;
         }
         else if (isDimmed == 2)
         {
-            currentLight = highIntensity;
+            currentHeadLight = highIntensity;
             headLight[0].intensity = highIntensity;
             headLight[1].intensity = highIntensity;
+            rearLight[0].intensity = 2.3f;
+            rearLight[1].intensity = 2.3f;
         }
     }
 
     public void BreakLightOn()
     {
-        rearLight_Obj.SetActive(true);
+        rearLight[0].intensity = 4f;
+        rearLight[1].intensity = 4f;
     }
 
     public void BreakLightOff()
     {
-        rearLight_Obj.SetActive(false);
+        rearLight[0].intensity = 0f;
+        rearLight[1].intensity = 0f;
     }
 }
