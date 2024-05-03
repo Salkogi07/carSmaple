@@ -20,6 +20,7 @@ public class WheelController : MonoBehaviour
 
     public Rigidbody RB;
     public Gear gear;
+    public CarLight carLight;
 
     float KPH;
     float breakSpeed = 250;
@@ -28,6 +29,7 @@ public class WheelController : MonoBehaviour
     {
         RB = GetComponent<Rigidbody>();
         gear = GetComponent<Gear>();
+        carLight = GetComponent<CarLight>();
     }
 
     // Update is called once per frame
@@ -125,11 +127,13 @@ public class WheelController : MonoBehaviour
 
             if (Input.GetKey(KeyCode.S))
             {
+                carLight.BreakLightOn();
                 steerableWheels[i].wheelCol.motorTorque = 0;
                 breakSpeed = Mathf.Lerp(KPH,0,Time.deltaTime * 2);
             }
             else
             {
+                carLight.BreakLightOff();
                 if(gear.currentGear != 0)
                 {
                     breakSpeed = 250;

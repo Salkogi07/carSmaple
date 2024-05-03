@@ -18,6 +18,8 @@ public class Gear : MonoBehaviour
         {
             IncreaseGear();
         }
+        if (Input.GetKeyDown(KeyCode.P))
+            currentGear = 0;
     }
 
     void IncreaseGear()
