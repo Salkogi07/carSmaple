@@ -17,6 +17,8 @@ public class CarLight : MonoBehaviour
     private bool highBeam = false;
     public bool breakLight = true;
 
+    private float rearLightIntensity = 0f; // Rear light intensity variable
+
     void Start()
     {
         headLight[0] = headLight_Obj.transform.Find("0").gameObject.GetComponent<Light>();
@@ -64,39 +66,38 @@ public class CarLight : MonoBehaviour
 
     private void ToggleLights()
     {
-        if(isDimmed == 0)
+        if (isDimmed == 0)
         {
             currentHeadLight = 0;
-            rearLight[0].intensity = 0f;
-            rearLight[1].intensity = 0f;
+            rearLightIntensity = 0f; // Update rear light intensity variable
         }
-        else if(isDimmed == 1)
+        else if (isDimmed == 1)
         {
             currentHeadLight = lowIntensity;
-            headLight[0].intensity = lowIntensity;
-            headLight[1].intensity = lowIntensity;
-            rearLight[0].intensity = 2.3f;
-            rearLight[1].intensity = 2.3f;
+            rearLightIntensity = 2.3f; // Update rear light intensity variable
         }
         else if (isDimmed == 2)
         {
             currentHeadLight = highIntensity;
-            headLight[0].intensity = highIntensity;
-            headLight[1].intensity = highIntensity;
-            rearLight[0].intensity = 2.3f;
-            rearLight[1].intensity = 2.3f;
+            rearLightIntensity = 2.3f; // Update rear light intensity variable
         }
+
+        // Apply rear light intensity
+        rearLight[0].intensity = rearLightIntensity;
+        rearLight[1].intensity = rearLightIntensity;
     }
 
     public void BreakLightOn()
     {
+        // Use the rear light intensity variable
         rearLight[0].intensity = 4f;
         rearLight[1].intensity = 4f;
     }
 
     public void BreakLightOff()
     {
-        rearLight[0].intensity = 0f;
-        rearLight[1].intensity = 0f;
+        // Use the rear light intensity variable
+        rearLight[0].intensity = rearLightIntensity;
+        rearLight[1].intensity = rearLightIntensity;
     }
 }
