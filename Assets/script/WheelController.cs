@@ -45,13 +45,13 @@ public class WheelController : MonoBehaviour
         bool rotateWheelKey = true;
         bool frontWheelKey = true;
         bool frontWheel = true;
-        KPH = RB.velocity.magnitude * 2.23693629f;
+        KPH = RB.velocity.magnitude * 3.6f;
 
         // 제한 속도 설정
         if (KPH > breakSpeed)
         {
             // 제한 속도를 초과할 경우 현재 속도를 제한 속도로 조정
-            RB.velocity = (breakSpeed / 2.23693629f) * RB.velocity.normalized;
+            RB.velocity = (breakSpeed / 3.6f) * RB.velocity.normalized;
         }
 
         for (int i = 0; i < steerableWheels.Length; i++)

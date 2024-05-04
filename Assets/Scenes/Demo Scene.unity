@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.003204829, g: 0.0063439845, b: 0.014498586, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3433,10 +3433,10 @@ MonoBehaviour:
   - {fileID: 6497975165587618695}
   - {fileID: 6497975166489567896}
   - {fileID: 6497975164730046101}
-  BreakPower: 0
+  brakePower: 0
   wheelRotateSpeed: 20
-  wheelSteeringAngle: 40
-  wheelAcceleration: 30
+  wheelSteeringAngle: 30
+  wheelAcceleration: 40
   wheelMaxSpeed: 4000
   RB: {fileID: 6497975164914386009}
   gear: {fileID: 0}

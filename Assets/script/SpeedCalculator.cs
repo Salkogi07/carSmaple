@@ -27,7 +27,7 @@ public class SpeedCalculator : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 vel = rb.velocity;
-        Speed = rb.velocity.magnitude * 2.23693629f;
+        Speed = vel.magnitude * 3.6f;
 
         SpeedText.text = Speed.ToString("0");
         GearText.text = gear.gears[gear.currentGear];
