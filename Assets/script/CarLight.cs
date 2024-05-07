@@ -17,6 +17,17 @@ public class CarLight : MonoBehaviour
     private bool highBeam = false;
     public bool breakLight = true;
 
+    public GameObject leftBlinker_obj;
+    public Light[] leftBlinker;
+    public GameObject rightBlinker_obj;
+    public Light[] rightBlinker;
+
+    private bool leftBlinkerActive = false;
+    private bool rightBlinkerActive = false;
+
+    private float blinkInterval = 0.5f; // 깜박이 주기 (초)
+    private float timer = 0f;
+
     private float rearLightIntensity = 0f; // Rear light intensity variable
 
     void Start()
@@ -48,6 +59,25 @@ public class CarLight : MonoBehaviour
         }
 
         HighBeam();
+
+        // 타이머 업데이트
+        timer += Time.deltaTime;
+
+        // 타이머가 주기보다 크면 깜박이 상태 변경
+        if (timer >= blinkInterval)
+        {
+            ToggleBlinkers();
+            timer = 0f;
+        }
+    }
+
+    void ToggleBlinkers()
+    {
+        leftBlinkerActive = !leftBlinkerActive;
+        leftBlinker_obj.SetActive(leftBlinkerActive);
+
+        rightBlinkerActive = !rightBlinkerActive;
+        rightBlinker_obj.SetActive(rightBlinkerActive);
     }
 
     private void HighBeam()
